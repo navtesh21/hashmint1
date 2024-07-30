@@ -2,6 +2,7 @@
   "expo": {
     "name": "hashmint1",
     "slug": "hashmint1",
+    
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,10 +17,12 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile":"./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.nav21.hashmint1"
     },
     "web": {
       "bundler": "metro",
@@ -27,10 +30,18 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router","@react-native-google-signin/google-signin","expo-document-picker"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f2519578-50b2-424f-962b-750d231db948"
+      }
     }
   }
 }

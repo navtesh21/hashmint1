@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "876299571311",
+    "project_id": "hashmint-new",
+    "storage_bucket": "hashmint-new.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876299571311:android:dab8379158817ac5aa3d9a",
+        "android_client_info": {
+          "package_name": "com.nav21.hashmint1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876299571311-9e3glusn9k5vdcaji8hu65t262nhgjis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nav21.hashmint1",
+            "certificate_hash": "f270f8bef0db191b17efe9e1b99aa22756825e2d"
+          }
+        },
+        {
+          "client_id": "876299571311-rncfrb40e97jaf5npb17r1ca7ajb5tbs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nav21.hashmint1",
+            "certificate_hash": "70e69a1d1018df2fd2c4701fb5383bf17c60f2ae"
+          }
+        },
+        {
+          "client_id": "876299571311-616d2q1h3n813d6ltav93aalt3ogh8i1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWfqA6ZQx9K8xjxUMBsiFQybGZZio9ZmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876299571311-616d2q1h3n813d6ltav93aalt3ogh8i1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
