@@ -14,8 +14,8 @@ import {
 import FolderGrid from "@/components/FolderGrid";
 import Import from "@/components/Import";
 
-const Home = () => {
-  const { userInfo, setGettingLoginStatus, setUserInfo } =
+const home = () => {
+  const { setGettingLoginStatus, setUserInfo } =
     useGlobalLoginContext();
   const [files, setFiles] = useState([]);
   const _signOut = async () => {
@@ -44,6 +44,7 @@ const Home = () => {
     }
     setGettingLoginStatus(false);
   };
+
   const gdrive = new GDrive();
 
   useEffect(() => {
@@ -71,7 +72,6 @@ const Home = () => {
             })
           );
 
-          console.log(folderId.result.id);
           const data = await gdrive.files.list({
             q: new ListQueryBuilder().in(
               folderId.result.id,
@@ -108,4 +108,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default home;

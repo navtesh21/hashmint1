@@ -4,6 +4,7 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from "@react-native-google-signin/google-signin";
+import { router } from "expo-router";
 
 const { userInfo, setUserInfo, setGettingLoginStatus } =
   useGlobalLoginContext();
@@ -33,7 +34,7 @@ export const _signIn = async () => {
   }
 };
 
-export const _signOut = async () => {
+export  const _signOut = async () => {
   setGettingLoginStatus(true);
   // Remove user session from the device.
   try {
@@ -53,6 +54,7 @@ export const _signOut = async () => {
       idToken: null,
       serverAuthCode: null,
     });
+    router.replace("Email");
   } catch (error) {
     console.error(error);
   }

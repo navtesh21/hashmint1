@@ -18,21 +18,19 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from "@react-native-google-signin/google-signin";
-import { ContextProps, useGlobalLoginContext } from "@/contexts/login";
-import { _signIn } from "@/lib/google";
+import {  useGlobalLoginContext } from "@/contexts/login";
+
 import images from "@/constants/images";
 import { router } from "expo-router";
 
 const Email = () => {
   const { userInfo, gettingLoginStatus, setGettingLoginStatus, setUserInfo } =
     useGlobalLoginContext();
-  console.log("hi", userInfo);
   
 
   useEffect(() => {
     if (userInfo.user.email) {
       router.replace("Home");
-      
     }
   }, [userInfo]);
 
@@ -56,7 +54,6 @@ const Email = () => {
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         alert("Play Services Not Available or Outdated");
       } else {
-        console.error("hi");
         alert(error.message);
       }
     }

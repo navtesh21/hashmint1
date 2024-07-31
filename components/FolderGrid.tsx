@@ -2,7 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import images from "@/constants/images";
 
-const FolderIcon = ({ item }) => {
+const FolderIcon = ({ item }: any) => {
   return (
     <View className="flex items-center justify-center">
       <Image source={images.Folder} resizeMode="contain" />
@@ -11,14 +11,12 @@ const FolderIcon = ({ item }) => {
   );
 };
 
-const FolderGrid = ({ data }: { data: [] }) => {
-  console.log("hi", data);
-
+const FolderGrid = ({ data }: any) => {
   return (
     <View className="flex flex-row gap-2 mt-4">
       {data.length > 0 ? (
-        data.map((item) => (
-          <View className="">
+        data.map((item: any) => (
+          <View className="" key={item.id}>
             <FolderIcon key={item.id} item={item} />
           </View>
         ))

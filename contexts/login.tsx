@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import {
   GoogleSignin,
-  GoogleSigninButton,
   statusCodes,
   User,
 } from "@react-native-google-signin/google-signin";
@@ -81,7 +80,6 @@ export const LoginContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const _getCurrentUserInfo = async () => {
     try {
       let info = await GoogleSignin.signInSilently();
-      console.log("User Info --> ", info);
       setUserInfo(info);
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_REQUIRED) {
