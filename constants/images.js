@@ -7,6 +7,7 @@ import Folder from "@/assets/images/Folder.png";
 import FlipChart from "@/assets/images/FlipChart.png";
 import Settings from "@/assets/images/Settings.png";
 import Close from "@/assets/images/Close.png";
+import PdfIcon from "@/assets/images/PdfIcon.png";
 const images = {
   enter,
   sendEmail,
@@ -17,5 +18,6 @@ const images = {
   Close,
   FlipChart,
   Settings,
+  PdfIcon,
 };
 export default images;

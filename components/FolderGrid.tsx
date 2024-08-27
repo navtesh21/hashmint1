@@ -5,15 +5,15 @@ import images from "@/constants/images";
 const FolderIcon = ({ item }: any) => {
   return (
     <View className="flex items-center justify-center">
-      <Image source={images.Folder} resizeMode="contain" />
-      <Text className="text-xs font-medium">{item.name}</Text>
+      <Image source={images.PdfIcon} resizeMode="contain" />
+      <Text className="text-xs font-medium">{item.name.slice(0,10)}...</Text>
     </View>
   );
 };
 
 const FolderGrid = ({ data }: any) => {
   return (
-    <View className="flex flex-row gap-2 mt-4">
+    <View className="flex flex-row gap-2 mt-4 flex-wrap">
       {data.length > 0 ? (
         data.map((item: any) => (
           <View className="" key={item.id}>

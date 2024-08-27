@@ -13,11 +13,15 @@ import {
 } from "@robinbobin/react-native-google-drive-api-wrapper";
 import FolderGrid from "@/components/FolderGrid";
 import Import from "@/components/Import";
+import { fetchFiles } from "@/lib/actions";
+import Loading from "@/components/Loading";
 
 const home = () => {
-  const { setGettingLoginStatus, setUserInfo } =
-    useGlobalLoginContext();
+  const { setGettingLoginStatus, setUserInfo } = useGlobalLoginContext();
   const [files, setFiles] = useState([]);
+  const [folderId, setId] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const _signOut = async () => {
     setGettingLoginStatus(true);
     // Remove user session from the device.
@@ -38,7 +42,7 @@ const home = () => {
         idToken: null,
         serverAuthCode: null,
       });
-      router.replace("Email");
+      router.replace("/Email");
     } catch (error) {
       console.error(error);
     }
@@ -71,14 +75,10 @@ const home = () => {
               parents: ["root"],
             })
           );
+          setId(folderId.result.id);
 
-          const data = await gdrive.files.list({
-            q: new ListQueryBuilder().in(
-              folderId.result.id,
-              "parents and trashed=false"
-            ),
-          });
-          setFiles(data.files);
+          const data = await fetchFiles(folderId.result.id);
+          setFiles(data);
         } catch (err) {
           //.. catch the error accordingly
           console.log(err);
@@ -96,13 +96,17 @@ const home = () => {
 
         <Image source={images.HMLogoSmall} resizeMode="contain" />
         <View className="flex items-center justify-center">
-          <Import />
+          <Import
+            folderId={folderId}
+            setFiles={setFiles}
+            setLoading={setLoading}
+          />
         </View>
       </View>
 
       <View className="mt-7 px-2">
         <Text className="font-bold text-3xl">My Files</Text>
-        <FolderGrid data={files} />
+        {loading ? <Loading /> : <FolderGrid data={files} />}
       </View>
     </SafeAreaView>
   );

@@ -54,7 +54,7 @@ export  const _signOut = async () => {
       idToken: null,
       serverAuthCode: null,
     });
-    router.replace("Email");
+    router.replace("/Email");
   } catch (error) {
     console.error(error);
   }
