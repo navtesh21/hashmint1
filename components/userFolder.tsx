@@ -26,10 +26,17 @@ const UserFolder = ({ signOut }: { signOut: () => void }) => {
               </TouchableOpacity>
               <TouchableOpacity
                 className="flex flex-row gap-2 hover:bg-[#FFF975] items-center"
-                onPress={() => router.push("Account")}
+                onPress={() => router.push("/Account")}
               >
                 <Image source={images.userFolder} resizeMode="contain" />
                 <Text className="text-2xl font-bold">Account</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                className="flex flex-row gap-2 hover:bg-[#FFF975] items-center"
+                onPress={() => router.push("/Sheet")}
+              >
+                <Image source={images.userFolder} resizeMode="contain" />
+                <Text className="text-2xl font-bold">Create Invoices</Text>
               </TouchableOpacity>
             </View>
           </View>

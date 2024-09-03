@@ -37,6 +37,14 @@ export default function RootLayout() {
             statusBarStyle: "dark",
           }}
         />
+         <Stack.Screen
+          name="Sheet"
+          options={{
+            headerShown: false,
+            statusBarColor: "white",
+            statusBarStyle: "dark",
+          }}
+        />
       </Stack>
     </LoginContextProvider>
   );

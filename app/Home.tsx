@@ -1,4 +1,10 @@
-import { View, Text, Image } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "@/constants/images";
@@ -15,12 +21,27 @@ import FolderGrid from "@/components/FolderGrid";
 import Import from "@/components/Import";
 import { fetchFiles } from "@/lib/actions";
 import Loading from "@/components/Loading";
+import firestore from "@react-native-firebase/firestore";
 
 const home = () => {
   const { setGettingLoginStatus, setUserInfo } = useGlobalLoginContext();
   const [files, setFiles] = useState([]);
   const [folderId, setId] = useState("");
   const [loading, setLoading] = useState(false);
+  const ref = firestore().collection('todos')
+  const submitdata = async () => {
+    try {
+      
+      console.log("haha");
+      await ref.add({
+        name: "Ada Lovelace",
+        age: 30,
+      });
+      console.log("User added!");
+    } catch (error) {
+      console.error("Error adding user: ", error);
+    }
+  };
 
   const _signOut = async () => {
     setGettingLoginStatus(true);
@@ -104,9 +125,19 @@ const home = () => {
         </View>
       </View>
 
-      <View className="mt-7 px-2">
+      {/* <View className="mt-7 px-2">
         <Text className="font-bold text-3xl">My Files</Text>
         {loading ? <Loading /> : <FolderGrid data={files} />}
+      </View> */}
+
+      <View>
+        {/* <Sheet /> */}
+        <TouchableOpacity
+          onPress={() => submitdata()}
+          className=" p-3 bg-blue-400"
+        >
+          <Text>Add</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
